@@ -1,0 +1,183 @@
+/*
+ * CMSC 22200, Fall 2016
+ *
+ * ARM pipeline timing simulator
+ *
+ */
+
+#include "cache.h"
+#include "pipe.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <assert.h>
+
+// pow: computes power of base to exp (for set and block)
+int pow(int base, uint32_t exp) {
+    int ret = 1;
+    for (; exp; exp--) {
+        ret *= base;
+    }
+    return ret;
+}
+
+// cache_new: create a cache_t instance on the heap
+// sets: number of set bits
+// ways: number of lines per set (associativity)
+// block: number of block bits
+cache_t *cache_new(int sets, int ways, int block)
+{
+    int S, B;
+    S = pow(2,sets);
+    B = pow(2,block);
+
+	cache_t *c = (cache_t*)malloc(sizeof(cache_t));
+	assert(c);
+    c->s = sets;
+    c->S = S;
+	c->E = ways;
+    c->b = block;
+    c->B = B;
+	c->sets = (cline**)malloc(sizeof(cline*)*S);
+	assert(c->sets);
+
+    int sidx, lidx; // set and line indices
+	for (int sidx=0; sidx<S; sidx++) {
+		c->sets[sidx] = (cline*)calloc(sizeof(cline),ways);
+		assert(c->sets[sidx]);
+		for (int lidx=0; lidx<ways; lidx++) {
+			c->sets[sidx][lidx].data = 
+                (uint8_t*)calloc(sizeof(uint8_t),B);
+			assert(c->sets[sidx][lidx].data);
+		}
+	}
+	return c;	
+}
+
+// cache_destroy: free a cache instance from the heap
+void cache_destroy(cache_t *c)
+{
+	assert(c);
+	int sidx, lidx; // set and line indices
+	assert(c->sets);
+	for (sidx=0; sidx<pow(2,c->s); sidx++) {
+		assert(c->sets[sidx]);
+		for (lidx=0; lidx<c->E; lidx++) {
+			assert(c->sets[sidx][lidx].data);
+			free(c->sets[sidx][lidx].data);
+		}
+		free(c->sets[sidx]);
+	}
+	free(c->sets);
+	free(c);
+	return;
+}
+
+// read 4B from a cache line
+uint32_t cache_memr_32(uint64_t addr, cache_t *c, uint8_t *cline_data) {
+    assert(c);
+    int block_offset = getbits_64(addr,c->b-1,0);
+
+    uint32_t rdata = 0;
+    // read 4B starting from block_offset (lowest bits of addr)
+    // to rdata
+    for (int i=0; i<4; i++) {
+        rdata |= (cline_data[block_offset+i]<<(i*8));
+    } 
+    return rdata;
+}
+
+void cache_memw_32(uint64_t addr, uint32_t wdata, 
+        cache_t *c, uint8_t *cline_data) {
+    assert(c);
+    int block_offset = getbits_64(addr,c->b-1,0);
+
+    // write 4B wdata byte by byte to cache line
+    // starting from block_offset 
+    for (int i=0; i<4; i++) {
+        cline_data[block_offset+i] = (uint8_t)(wdata>>(i*8));
+    } 
+}
+
+// cache_update: returns 1 if hit, 0 if miss;
+// point hit_line if hit
+// ld: 0-st, 1-ld
+int cache_update(cache_t *c, uint64_t addr, cline *hit_line) {
+    assert(c);
+
+    int hit = 0;
+
+    int s, S, E, b, B;
+    s = c->s;
+    S = c->S;
+    E = c->E;
+    b = c->b;
+    B = c->B;
+
+    // map addr to set and tag
+    uint64_t addr_set, addr_tag;
+    addr_tag = getbits_64(addr,63,s+b);
+    addr_set = (uint32_t)getbits_64(addr,s+b-1,b);
+    assert(addr_set<S);
+    cline *cset = c->sets[addr_set];    // set which addr maps to
+
+    // search for block in set line by line
+    int lidx = 0;
+    for (; lidx<E; lidx++) {
+        cline cline = cset[lidx];
+        if (cline.valid) {  // line valid
+            if (!(cline.tag^addr_tag)) {    // tags match
+                hit_line = &cline;
+                hit = 1;
+            }
+        }
+    }
+
+    // miss
+    if (!hit) {
+        cline *lru_line = &cset[0];
+        int lru_cycle = lru_line->mr_cycle;
+        // find LRU line
+        // includes empty-line case (0 is least possible cycles)
+        for (lidx=1; lidx<E; lidx++) {
+            if (cset[lidx].mr_cycle<lru_cycle) {
+                lru_line = &cset[lidx];
+                lru_cycle = cset[lidx].mr_cycle;
+            }
+        }
+
+        // replace       
+        uint8_t *linedata = lru_line->data;
+        uint32_t memword;
+        uint64_t cp_addr = addr;
+
+        // if replacing valid block, write to mem
+        if (lru_line->valid) {  
+            for (int i=0; i<B; i+=4) {   // iterate through block in 4B subblocks
+                memword = 0;
+                for (int j=0; j<4; j++) {   // iterate through subblock
+                    memword |= linedata[i+j]<<(j*8);
+                }
+                mem_write_32(cp_addr,memword);
+                cp_addr += 4;
+            }
+        }
+        cp_addr = addr;
+        // get new block
+        lru_line->tag = addr_tag;
+        for (int i=0; i<B; i+=4) {   // iterate through block in 4B subblocks
+            memword = mem_read_32(cp_addr);
+            for (int j=0; j<4; j++) {   // iterate through subblock
+                linedata[i+j] = (uint8_t)(memword>>(j*8));
+            }
+            cp_addr += 4;
+        }
+        lru_line->valid = 1;
+
+        // LRU line is now MRU line
+        lru_line->mr_cycle = stat_cycles;
+    }
+
+
+    return hit;
+}
+

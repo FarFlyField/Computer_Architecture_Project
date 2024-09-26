@@ -1,0 +1,3120 @@
+ARM Simulator
+
+Read 22 words from program into memory.
+
+ARM-SIM> 
+Simulating...
+
+Cycle 1
+IF instr:0xd282001c
+Missed in BTB. Predicted PC:0x400004
+PREDICTED PC:0x400004
+Next PC to fetch:0x400004
+
+Cycle 2
+ID instr:0xd282001c
+IF instr:0xd370bf9c
+Missed in BTB. Predicted PC:0x400008
+PREDICTED PC:0x400008
+Next PC to fetch:0x400008
+
+Cycle 3
+EX instr:0xd282001c
+ID instr:0xd370bf9c
+IF instr:0x9100439c
+Missed in BTB. Predicted PC:0x40000c
+PREDICTED PC:0x40000c
+Next PC to fetch:0x40000c
+
+Cycle 4
+MEM instr:0xd282001c
+EX instr:0xd370bf9c
+ID instr:0x9100439c
+IF instr:0xb802039f
+Missed in BTB. Predicted PC:0x400010
+PREDICTED PC:0x400010
+Next PC to fetch:0x400010
+
+Cycle 5
+WB instr:0xd282001c
+MEM instr:0xd370bf9c
+EX instr:0x9100439c
+ID instr:0xb802039f
+IF instr:0xd2800280
+Missed in BTB. Predicted PC:0x400014
+PREDICTED PC:0x400014
+Next PC to fetch:0x400014
+
+Cycle 6
+WB instr:0xd370bf9c
+MEM instr:0x9100439c
+EX instr:0xb802039f
+ID instr:0xd2800280
+IF instr:0xf8014380
+Missed in BTB. Predicted PC:0x400018
+PREDICTED PC:0x400018
+Next PC to fetch:0x400018
+
+Cycle 7
+WB instr:0x9100439c
+MEM instr:0xb802039f
+EX instr:0xd2800280
+ID instr:0xf8014380
+IF instr:0xb800c39f
+Missed in BTB. Predicted PC:0x40001c
+PREDICTED PC:0x40001c
+Next PC to fetch:0x40001c
+
+Cycle 8
+WB instr:0xb802039f
+MEM instr:0xd2800280
+EX instr:0xf8014380
+ID instr:0xb800c39f
+IF instr:0x14000008
+Missed in BTB. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 9
+WB instr:0xd2800280
+MEM instr:0xf8014380
+EX instr:0xb800c39f
+ID instr:0x14000008
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 10
+WB instr:0xf8014380
+MEM instr:0xb800c39f
+EX instr:0x14000008
+  Resolved bPC:40003c
+  C_S.PC:      400024
+  IFID.instrPC:400020
+  IDEX.instrPC:40001c
+pos2
+Next PC to fetch:0x40003c
+
+Cycle 11
+WB instr:0xb800c39f
+MEM instr:0x14000008
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 12
+WB instr:0x14000008
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 13
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 14
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Missed in BTB. Predicted PC:0x40004c
+PREDICTED PC:0x40004c
+Next PC to fetch:0x40004c
+
+Cycle 15
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x40004c
+
+Cycle 16
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420384
+Missed in BTB. Predicted PC:0x400050
+PREDICTED PC:0x400050
+Next PC to fetch:0x400050
+
+Cycle 17
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400050
+  IFID.instrPC:40004c
+  IDEX.instrPC:400048
+pos2
+Next PC to fetch:0x400020
+
+Cycle 18
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 19
+WB instr:0x54fffecd
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 20
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 21
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 22
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 23
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 24
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 25
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 26
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 27
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 28
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 29
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 30
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted not taken. Predicted PC:0x40004c
+PREDICTED PC:0x40004c
+Next PC to fetch:0x40004c
+
+Cycle 31
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x40004c
+
+Cycle 32
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420384
+Missed in BTB. Predicted PC:0x400050
+PREDICTED PC:0x400050
+Next PC to fetch:0x400050
+
+Cycle 33
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400050
+  IFID.instrPC:40004c
+  IDEX.instrPC:400048
+pos2
+Next PC to fetch:0x400020
+
+Cycle 34
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 35
+WB instr:0x54fffecd
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 36
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 37
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 38
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 39
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 40
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 41
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 42
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 43
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 44
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 45
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 46
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted not taken. Predicted PC:0x40004c
+PREDICTED PC:0x40004c
+Next PC to fetch:0x40004c
+
+Cycle 47
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x40004c
+
+Cycle 48
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420384
+Missed in BTB. Predicted PC:0x400050
+PREDICTED PC:0x400050
+Next PC to fetch:0x400050
+
+Cycle 49
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400050
+  IFID.instrPC:40004c
+  IDEX.instrPC:400048
+pos2
+Next PC to fetch:0x400020
+
+Cycle 50
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 51
+WB instr:0x54fffecd
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 52
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 53
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 54
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 55
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 56
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 57
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 58
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 59
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 60
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 61
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 62
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted not taken. Predicted PC:0x40004c
+PREDICTED PC:0x40004c
+Next PC to fetch:0x40004c
+
+Cycle 63
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x40004c
+
+Cycle 64
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420384
+Missed in BTB. Predicted PC:0x400050
+PREDICTED PC:0x400050
+Next PC to fetch:0x400050
+
+Cycle 65
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400050
+  IFID.instrPC:40004c
+  IDEX.instrPC:400048
+pos2
+Next PC to fetch:0x400020
+
+Cycle 66
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 67
+WB instr:0x54fffecd
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 68
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 69
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 70
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 71
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 72
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 73
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 74
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 75
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 76
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 77
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 78
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted not taken. Predicted PC:0x40004c
+PREDICTED PC:0x40004c
+Next PC to fetch:0x40004c
+
+Cycle 79
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x40004c
+
+Cycle 80
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420384
+Missed in BTB. Predicted PC:0x400050
+PREDICTED PC:0x400050
+Next PC to fetch:0x400050
+
+Cycle 81
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400050
+  IFID.instrPC:40004c
+  IDEX.instrPC:400048
+pos2
+Next PC to fetch:0x400020
+
+Cycle 82
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 83
+WB instr:0x54fffecd
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 84
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 85
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 86
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 87
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 88
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 89
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 90
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 91
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 92
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 93
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 94
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted not taken. Predicted PC:0x40004c
+PREDICTED PC:0x40004c
+Next PC to fetch:0x40004c
+
+Cycle 95
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x40004c
+
+Cycle 96
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420384
+Missed in BTB. Predicted PC:0x400050
+PREDICTED PC:0x400050
+Next PC to fetch:0x400050
+
+Cycle 97
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400050
+  IFID.instrPC:40004c
+  IDEX.instrPC:400048
+pos2
+Next PC to fetch:0x400020
+
+Cycle 98
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 99
+WB instr:0x54fffecd
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 100
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 101
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 102
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 103
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 104
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 105
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 106
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 107
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 108
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 109
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 110
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted not taken. Predicted PC:0x40004c
+PREDICTED PC:0x40004c
+Next PC to fetch:0x40004c
+
+Cycle 111
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x40004c
+
+Cycle 112
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420384
+Missed in BTB. Predicted PC:0x400050
+PREDICTED PC:0x400050
+Next PC to fetch:0x400050
+
+Cycle 113
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400050
+  IFID.instrPC:40004c
+  IDEX.instrPC:400048
+pos2
+Next PC to fetch:0x400020
+
+Cycle 114
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 115
+WB instr:0x54fffecd
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 116
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 117
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 118
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 119
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 120
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 121
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 122
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 123
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 124
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 125
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 126
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted not taken. Predicted PC:0x40004c
+PREDICTED PC:0x40004c
+Next PC to fetch:0x40004c
+
+Cycle 127
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x40004c
+
+Cycle 128
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420384
+Missed in BTB. Predicted PC:0x400050
+PREDICTED PC:0x400050
+Next PC to fetch:0x400050
+
+Cycle 129
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400050
+  IFID.instrPC:40004c
+  IDEX.instrPC:400048
+pos2
+Next PC to fetch:0x400020
+
+Cycle 130
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 131
+WB instr:0x54fffecd
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 132
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 133
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 134
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 135
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 136
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 137
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 138
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 139
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 140
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 141
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 142
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted not taken. Predicted PC:0x40004c
+PREDICTED PC:0x40004c
+Next PC to fetch:0x40004c
+
+Cycle 143
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x40004c
+
+Cycle 144
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420384
+Missed in BTB. Predicted PC:0x400050
+PREDICTED PC:0x400050
+Next PC to fetch:0x400050
+
+Cycle 145
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400050
+  IFID.instrPC:40004c
+  IDEX.instrPC:400048
+pos2
+Next PC to fetch:0x400020
+
+Cycle 146
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 147
+WB instr:0x54fffecd
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 148
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 149
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 150
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 151
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 152
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 153
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 154
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 155
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 156
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 157
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 158
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted not taken. Predicted PC:0x40004c
+PREDICTED PC:0x40004c
+Next PC to fetch:0x40004c
+
+Cycle 159
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x40004c
+
+Cycle 160
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420384
+Missed in BTB. Predicted PC:0x400050
+PREDICTED PC:0x400050
+Next PC to fetch:0x400050
+
+Cycle 161
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400050
+  IFID.instrPC:40004c
+  IDEX.instrPC:400048
+pos2
+Next PC to fetch:0x400020
+
+Cycle 162
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 163
+WB instr:0x54fffecd
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 164
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 165
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 166
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 167
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 168
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 169
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 170
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 171
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 172
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 173
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 174
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted taken. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 175
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400020
+
+Cycle 176
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 177
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400024
+  IFID.instrPC:400020
+  IDEX.instrPC:400048
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 178
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 179
+WB instr:0x54fffecd
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 180
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 181
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 182
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 183
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 184
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 185
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 186
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 187
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 188
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted taken. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 189
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400020
+
+Cycle 190
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 191
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400024
+  IFID.instrPC:400020
+  IDEX.instrPC:400048
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 192
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 193
+WB instr:0x54fffecd
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 194
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 195
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 196
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 197
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 198
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 199
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 200
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 201
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 202
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted taken. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 203
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400020
+
+Cycle 204
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 205
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400024
+  IFID.instrPC:400020
+  IDEX.instrPC:400048
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 206
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 207
+WB instr:0x54fffecd
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 208
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 209
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 210
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 211
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 212
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 213
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 214
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 215
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 216
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted taken. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 217
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400020
+
+Cycle 218
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 219
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400024
+  IFID.instrPC:400020
+  IDEX.instrPC:400048
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 220
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 221
+WB instr:0x54fffecd
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 222
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 223
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 224
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 225
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 226
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 227
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 228
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 229
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 230
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted taken. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 231
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400020
+
+Cycle 232
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 233
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400024
+  IFID.instrPC:400020
+  IDEX.instrPC:400048
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 234
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 235
+WB instr:0x54fffecd
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 236
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 237
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 238
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 239
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 240
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 241
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 242
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 243
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 244
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted taken. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 245
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400020
+
+Cycle 246
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 247
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400024
+  IFID.instrPC:400020
+  IDEX.instrPC:400048
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 248
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 249
+WB instr:0x54fffecd
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 250
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 251
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 252
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 253
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 254
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 255
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 256
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 257
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 258
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted taken. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 259
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400020
+
+Cycle 260
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 261
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400024
+  IFID.instrPC:400020
+  IDEX.instrPC:400048
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 262
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 263
+WB instr:0x54fffecd
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 264
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 265
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 266
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 267
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 268
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 269
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 270
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 271
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 272
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted taken. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 273
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400020
+
+Cycle 274
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 275
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400024
+  IFID.instrPC:400020
+  IDEX.instrPC:400048
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 276
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 277
+WB instr:0x54fffecd
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 278
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 279
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 280
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 281
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 282
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 283
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 284
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 285
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 286
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted taken. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 287
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400020
+
+Cycle 288
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 289
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400024
+  IFID.instrPC:400020
+  IDEX.instrPC:400048
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 290
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 291
+WB instr:0x54fffecd
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 292
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 293
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 294
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 295
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 296
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 297
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 298
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 299
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 300
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted taken. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 301
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400020
+
+Cycle 302
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 303
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400024
+  IFID.instrPC:400020
+  IDEX.instrPC:400048
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 304
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 305
+WB instr:0x54fffecd
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 306
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 307
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 308
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 309
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 310
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 311
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 312
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 313
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 314
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted taken. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 315
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400020
+
+Cycle 316
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 317
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+  Resolved bPC:400020
+  C_S.PC:      400024
+  IFID.instrPC:400020
+  IDEX.instrPC:400048
+ID instr:0xf8420381
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400028
+PREDICTED PC:0x400028
+Next PC to fetch:0x400028
+
+Cycle 318
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+EX instr:0xf8420381
+ID instr:0xf840c380
+IF instr:0x8b000020
+Missed in BTB. Predicted PC:0x40002c
+PREDICTED PC:0x40002c
+Next PC to fetch:0x40002c
+
+Cycle 319
+WB instr:0x54fffecd
+MEM instr:0xf8420381
+EX instr:0xf840c380
+ID instr:0x8b000020
+IF instr:0xf8020380
+Missed in BTB. Predicted PC:0x400030
+PREDICTED PC:0x400030
+Next PC to fetch:0x400030
+
+Cycle 320
+WB instr:0xf8420381
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400030
+
+Cycle 321
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x8b000020
+ID instr:0xf8020380
+IF instr:0xf840c380
+Missed in BTB. Predicted PC:0x400034
+PREDICTED PC:0x400034
+Next PC to fetch:0x400034
+
+Cycle 322
+MEM instr:0x8b000020
+EX instr:0xf8020380
+ID instr:0xf840c380
+IF instr:0x91000400
+Missed in BTB. Predicted PC:0x400038
+PREDICTED PC:0x400038
+Next PC to fetch:0x400038
+
+Cycle 323
+WB instr:0x8b000020
+MEM instr:0xf8020380
+EX instr:0xf840c380
+ID instr:0x91000400
+IF instr:0xf800c380
+Missed in BTB. Predicted PC:0x40003c
+PREDICTED PC:0x40003c
+Next PC to fetch:0x40003c
+
+Cycle 324
+WB instr:0xf8020380
+MEM instr:0xf840c380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X0,IDEX.rsrc2:X0
+Next PC to fetch:0x40003c
+
+Cycle 325
+WB instr:0xf840c380
+load-use unstall
+EX instr:0x91000400
+ID instr:0xf800c380
+IF instr:0xf840c381
+Missed in BTB. Predicted PC:0x400040
+PREDICTED PC:0x400040
+Next PC to fetch:0x400040
+
+Cycle 326
+MEM instr:0x91000400
+EX instr:0xf800c380
+ID instr:0xf840c381
+IF instr:0xf8414380
+Missed in BTB. Predicted PC:0x400044
+PREDICTED PC:0x400044
+Next PC to fetch:0x400044
+
+Cycle 327
+WB instr:0x91000400
+MEM instr:0xf800c380
+EX instr:0xf840c381
+ID instr:0xf8414380
+IF instr:0xeb00003f
+Missed in BTB. Predicted PC:0x400048
+PREDICTED PC:0x400048
+Next PC to fetch:0x400048
+
+Cycle 328
+WB instr:0xf800c380
+MEM instr:0xf840c381
+EX instr:0xf8414380
+ID instr:0xeb00003f
+IF instr:0x54fffecd
+Predicted taken. Predicted PC:0x400020
+PREDICTED PC:0x400020
+Next PC to fetch:0x400020
+
+Cycle 329
+WB instr:0xf840c381
+MEM instr:0xf8414380
+load-use
+EXM.rdest:X0,IDEX.rsrc1:X1,IDEX.rsrc2:X0
+Next PC to fetch:0x400020
+
+Cycle 330
+WB instr:0xf8414380
+load-use unstall
+EX instr:0xeb00003f
+ID instr:0x54fffecd
+IF instr:0xf8420381
+Missed in BTB. Predicted PC:0x400024
+PREDICTED PC:0x400024
+Next PC to fetch:0x400024
+
+Cycle 331
+MEM instr:0xeb00003f
+EX instr:0x54fffecd
+pos2
+Next PC to fetch:0x40004c
+
+Cycle 332
+WB instr:0xeb00003f
+MEM instr:0x54fffecd
+IF instr:0xf8420384
+Missed in BTB. Predicted PC:0x400050
+PREDICTED PC:0x400050
+Next PC to fetch:0x400050
+
+Cycle 333
+WB instr:0x54fffecd
+ID instr:0xf8420384
+IF instr:0xd100439c
+Missed in BTB. Predicted PC:0x400054
+PREDICTED PC:0x400054
+Next PC to fetch:0x400054
+
+Cycle 334
+EX instr:0xf8420384
+ID instr:0xd100439c
+IF instr:0xd4400000
+Missed in BTB. Predicted PC:0x400058
+PREDICTED PC:0x400058
+Next PC to fetch:0x400058
+
+Cycle 335
+MEM instr:0xf8420384
+EX instr:0xd100439c
+ID instr:0xd4400000
+IF instr:0x0
+Missed in BTB. Predicted PC:0x40005c
+PREDICTED PC:0x40005c
+Next PC to fetch:0x40005c
+
+Cycle 336
+WB instr:0xf8420384
+MEM instr:0xd100439c
+EX instr:0xd4400000
+Next PC to fetch:0x40005c
+
+Cycle 337
+WB instr:0xd100439c
+MEM instr:0xd4400000
+Next PC to fetch:0x40005c
+
+Cycle 338
+WB instr:0xd4400000
+Next PC to fetch:0x40005c
+
+Simulator halted
+
+ARM-SIM> 
+
+Current register/bus values :
+-------------------------------------
+Instruction Retired : 246
+PC                : 0x40005c
+Registers:
+X0: 0x14
+X1: 0x15
+X2: 0x0
+X3: 0x0
+X4: 0xd2
+X5: 0x0
+X6: 0x0
+X7: 0x0
+X8: 0x0
+X9: 0x0
+X10: 0x0
+X11: 0x0
+X12: 0x0
+X13: 0x0
+X14: 0x0
+X15: 0x0
+X16: 0x0
+X17: 0x0
+X18: 0x0
+X19: 0x0
+X20: 0x0
+X21: 0x0
+X22: 0x0
+X23: 0x0
+X24: 0x0
+X25: 0x0
+X26: 0x0
+X27: 0x0
+X28: 0x10000000
+X29: 0x0
+X30: 0x0
+X31: 0x0
+FLAG_N: 0
+FLAG_Z: 0
+No. of Cycles: 338
+
+ARM-SIM> 

@@ -1,0 +1,289 @@
+#include <stdio.h>
+#include <inttypes.h>
+#include "shell.h"
+
+#define REG_MASK 0x1f
+#define ZR 31
+
+// mask: aux that returns a mask for 
+// the accepted number of bits
+uint32_t mask(uint32_t num_bits) {
+	return ~(~0x0<<num_bits);
+}
+
+void fetch(uint32_t *ip) {
+	*ip = mem_read_32(CURRENT_STATE.PC);
+}
+
+//extend the immediate value with the sign it has to 64 bits. 
+uint64_t imm_ext(uint32_t imm, int imm_len) {
+	uint64_t sign = (uint64_t)(imm>>(imm_len-1));
+	sign = ~sign+1;
+	return (sign<<imm_len) | (uint64_t)imm;
+}
+
+void incr_PC() {
+	NEXT_STATE.PC = CURRENT_STATE.PC+4;
+}
+
+//helper function used to load. 
+void exec_ldur(int Rt, uint64_t addr, int len_id) {
+	uint64_t src_addr = addr;
+	uint32_t src_word = mem_read_32(src_addr);
+	if (len_id==0x3) {		// ldur
+		NEXT_STATE.REGS[Rt] = mem_read_32(src_addr+4);
+		NEXT_STATE.REGS[Rt] <<= 32;
+		NEXT_STATE.REGS[Rt] |= src_word;
+	} else if (len_id==0x0) {	// ldurb
+		NEXT_STATE.REGS[Rt] = src_word & mask(8);
+	} else if (len_id==0x1) {	// ldurh
+		NEXT_STATE.REGS[Rt] = src_word & mask(16);
+	}
+}	
+
+void exec_stur(int Rt, uint64_t addr, int len_id) {
+	uint64_t dest_addr = addr;
+	uint32_t dest_word = mem_read_32(dest_addr);
+	uint64_t src_val = CURRENT_STATE.REGS[Rt];
+	if (len_id==0x3) {		// stur
+		//to store a 64 bit long value, we store it in little endian. 
+		mem_write_32(dest_addr,(uint32_t)(src_val));
+		mem_write_32(dest_addr+4,(uint32_t)(src_val>>32));
+	} else if (len_id==0x0) {	// sturb
+		src_val &= mask(8);
+		dest_word &= (~0x0)<<8;
+		dest_word |= (uint32_t)src_val;
+		mem_write_32(dest_addr,dest_word);
+	} else if (len_id==0x1) {	// sturh
+		src_val &= mask(16);
+		dest_word &= (~0x0)<<16;
+		dest_word |= (uint32_t)src_val;
+		mem_write_32(dest_addr,dest_word);
+	}
+}
+
+void set_n_z(int Rd) {
+	uint64_t nxt_Rd_val = NEXT_STATE.REGS[Rd];
+	NEXT_STATE.FLAG_N = nxt_Rd_val>>63 ? 0x1 : 0x0;
+	NEXT_STATE.FLAG_Z = nxt_Rd_val ? 0x0 : 0x1;
+}
+
+void exec_sr(int srid, int Rd, int Rn, int Rm) {
+	uint64_t Rn_val = CURRENT_STATE.REGS[Rn];
+	uint64_t Rm_val = CURRENT_STATE.REGS[Rm];
+	if (srid==0x4 || srid==0x7) { 	// and/ands
+		NEXT_STATE.REGS[Rd] = Rn_val & Rm_val;
+		if (srid==0x7) set_n_z(Rd);
+	} else if (srid==0x6) { 	// eor
+		NEXT_STATE.REGS[Rd] = Rn_val ^ Rm_val;
+	} else if (srid==0x5) { 	// orr
+		NEXT_STATE.REGS[Rd] = Rn_val | Rm_val;
+	}	
+}
+
+void exec_er(int erid, int Rd, int Rn, int Rm) {
+	uint64_t Rn_val = CURRENT_STATE.REGS[Rn];
+	uint64_t Rm_val = CURRENT_STATE.REGS[Rm];
+	if (erid<0x2) {			// add/adds
+		NEXT_STATE.REGS[Rd] = Rn_val + Rm_val;
+	} else {			// sub/subs/cmp
+		NEXT_STATE.REGS[Rd] = Rn_val - Rm_val;
+	}
+	if (erid & mask(1)) {
+		set_n_z(Rd);
+	}
+}
+
+void exec_imm(int immid, uint32_t imm, int Rd, int Rn) {
+	uint64_t Rn_val = CURRENT_STATE.REGS[Rn];
+	if (immid<0x2) {
+		NEXT_STATE.REGS[Rd] = Rn_val + imm;
+	} else {
+		NEXT_STATE.REGS[Rd] = Rn_val - imm;
+	}
+	if (immid & mask(1)) {
+		set_n_z(Rd);
+	}
+}
+
+int bcond_test(int cond, int N, int Z) {
+	int C=0, V=0;
+	if (cond==0x0) return Z==1;		// beq
+	else if (cond==0x1) return Z==0;		// bne
+    else if (cond==0xa) return N==V;	// bge
+	else if (cond==0xb) return N!=V;	// blt
+	else if (cond==0xc) return (Z==0)&&(N==V);// bgt
+	else if (cond==0xd) return !(Z==0 && N==V);	// ble	
+}
+
+int decode_execute(uint32_t instr, uint32_t *immp, int *Rdp, int *Rnp, int *Rmp, int *Rtp) {
+	printf("0x%x\n",instr);	// DB
+	
+	uint32_t opcode = (instr>>21)&mask(11); 
+	printf("opcode:0x%x\n",opcode); 	// DB
+	if (opcode==0x6a2) {
+		printf("%s", "halt instruction\n"); 	// DB
+		RUN_BIT = 0x0;
+		incr_PC();
+		return 0;
+	} else if (opcode==0x4d8) {
+		printf("%s", "multiplication instruction\n"); // DB
+		*Rdp = instr & REG_MASK; 
+		*Rnp = (instr>>5) & REG_MASK;
+		*Rmp = (instr>>16) & REG_MASK;
+		NEXT_STATE.REGS[*Rdp] = 
+			(uint64_t)(CURRENT_STATE.REGS[*Rnp]*CURRENT_STATE.REGS[*Rmp]);
+		incr_PC();
+		return 0;
+	} else if (opcode==0x6b0) {
+		printf("%s","branch to reg instruction\n");	// DB
+		*Rnp = (instr>>5) & REG_MASK;
+		NEXT_STATE.PC = CURRENT_STATE.REGS[*Rnp];
+		return 0;
+	}
+
+	uint32_t lsl_code = (instr>>22) & mask(10);
+	if (lsl_code==0x34d) {
+		printf("%s","logical shift by immed instruction\n");	// DB
+		*immp = (instr>>16) & mask(6); 
+		*Rdp = instr & REG_MASK;
+		*Rnp = (instr>>5) & REG_MASK;
+		uint32_t imms = (instr>>10) & mask(6);
+		//made changes that the lab1 says if 111111 then shift to the right. 
+		if (imms==0x3f) { 
+			NEXT_STATE.REGS[*Rdp] =	CURRENT_STATE.REGS[*Rnp]>>*immp;
+		} else if (imms!=0x3f && imms+1==*immp){ 
+			uint32_t imms_now= (~imms) & mask(6);
+			NEXT_STATE.REGS[*Rdp] = CURRENT_STATE.REGS[*Rnp]<<imms_now;
+		}
+		incr_PC();
+		return 0;
+	}
+
+
+	uint32_t ldstur_code = (instr>>21) & mask(9);
+	printf("ldstur_code:0x%x\n",ldstur_code);	// DB
+	if (ldstur_code==0x1c2 || ldstur_code==0x1c0) {
+		printf("%s","load/store unscaled reg instruction\n");	// DB
+		*immp = (instr>>12) & mask(9);
+		*Rtp = instr & REG_MASK;
+		*Rnp = (instr>>5) & REG_MASK;
+		int ld = (instr>>22) & mask(2);	// ld:01b, st:00b
+		uint64_t addr = CURRENT_STATE.REGS[*Rnp] + imm_ext(*immp,9);
+		int len_id = (instr>>30) & mask(2); // ur:11b, urb:00b, urh:01b 
+		if (ld) exec_ldur(*Rtp,addr,len_id);
+		else exec_stur(*Rtp,addr,len_id);
+		incr_PC();
+		return 0;
+	} 
+	
+	uint32_t mvlsi_code = (instr>>23) & mask(9);
+	printf("mvlsi_code:0x%x\n",mvlsi_code);	// DB
+	if (mvlsi_code==0x1a5) {
+		printf("%s","move with zero instruction\n");	// DB
+		*immp = (instr>>5) & mask(16);
+		*Rdp = instr & REG_MASK;
+		NEXT_STATE.REGS[*Rdp] = *immp;
+		incr_PC();
+		return 0;
+	}
+	
+	uint32_t b_code = (instr>>26) & mask(6);
+	printf("b_code:0x%x\n",b_code); 	// DB
+	if (b_code==0x5) {
+		printf("%s","uncond branch instruction\n");
+		*immp = instr & mask(26);
+		uint64_t offset = imm_ext(*immp,26)<<2;
+		NEXT_STATE.PC = CURRENT_STATE.PC + offset;
+		return 0;
+	} else if (b_code==0x15) {
+		printf("%s","cond branch instruction\n");
+		*immp = (instr>>5) & mask(19);
+		uint64_t offset = imm_ext(*immp,19)<<2;
+		int cond = instr & mask(4);
+		NEXT_STATE.PC = CURRENT_STATE.PC + (
+			bcond_test(cond,CURRENT_STATE.FLAG_N,CURRENT_STATE.FLAG_Z) ?
+			offset :
+			4
+			);	
+		return 0;
+	}
+
+	uint32_t cb_code = (instr>>25) & mask(7);
+	printf("cb_code:0x%x\n",cb_code);	// DB
+	if (cb_code==0x5a) {
+		printf("%s","compare branch instruction\n");	// DB
+		*immp = (instr>>5) & mask(19);
+		*Rtp = instr & REG_MASK;
+		uint64_t offset = imm_ext(*immp,19)<<2;
+		int op = (instr>>24) & mask(1); // cbnz:1, cbz:0
+		//takes out the value in the reg and check
+		uint64_t val_in_reg = CURRENT_STATE.REGS[*Rtp];
+		uint64_t to_add = 0;
+		if (op==1 && val_in_reg){
+			//this is when CBNZ happens and the val in register is non-zero
+			//we add the offset in this case. 
+			NEXT_STATE.PC = CURRENT_STATE.PC+offset;
+			return 0;
+		}else if (op==0 && !val_in_reg){
+			//this is when CBZ happens and the val in reg is indeed zero
+			//we add the offset in this case. 
+			NEXT_STATE.PC = CURRENT_STATE.PC+offset;
+			return 0;
+		}else{
+			//any other cases we will only add 4
+			NEXT_STATE.PC = CURRENT_STATE.PC+4;
+			return 0;
+		}
+	}
+	
+	uint32_t dp_code = (instr>>24) & mask(5);
+	printf("dp_code:0x%x\n",dp_code); 	// DB
+	if (dp_code==0xa) {
+		printf("%s","shifted register instruction\n");	// DB
+		//and, ands, eor orr
+		*Rdp = instr & REG_MASK;
+		*Rnp = (instr>>5) & REG_MASK;
+		*Rmp = (instr>>16) & REG_MASK;
+		int srid = (instr>>29) & mask(3);
+		exec_sr(srid,*Rdp,*Rnp,*Rmp);
+		incr_PC();
+		return 0;
+	} else if (dp_code==0xb) {
+		printf("%s","extended register instruction\n");	// DB	
+		//*immp = (instr>>10) & mask(3);
+		*Rdp = instr & REG_MASK;
+		*Rnp = (instr>>5) & REG_MASK;
+		*Rmp = (instr>>16) & REG_MASK;
+		int erid = (instr>>29) & mask(2);
+		exec_er(erid,*Rdp,*Rnp,*Rmp);
+		incr_PC();
+		return 0;
+	} else if (dp_code==0x11) {
+		printf("%s","immediate instruction\n");	// DB
+		*immp = (instr>>10) & mask(12);
+		*Rdp = instr & REG_MASK;
+		*Rnp = (instr>>5) & REG_MASK;
+		int immid = (instr>>29) & mask(2);
+		exec_imm(immid,*immp,*Rdp,*Rnp);
+		incr_PC();
+		return 0;
+	}
+	printf("%s","\n");	// DB
+}
+
+void execute() {;}
+
+void process_instruction() {
+    /* execute one instruction here. You should use CURRENT_STATE and modify
+     * values in NEXT_STATE. You can call mem_read_32() and mem_write_32() to
+     * access memory. */
+	uint32_t instr;
+	uint32_t imm;
+	int Rd,Rm,Rn,Rt;    
+
+	fetch(&instr);
+	decode_execute(instr,&imm,&Rd,&Rn,&Rm,&Rt);	
+	NEXT_STATE.REGS[31] = 0x0;
+}
+

@@ -1,0 +1,9 @@
+lab3-test.txt
+---------
+
+Section 1: cycle-by-cycle comparison
+Test: accumulation_20.x
+Reference simulator cycle count: 339
+Student simulator cycle count: 339
+Number of matching cycles: 339
+

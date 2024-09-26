@@ -1,0 +1,58 @@
+/*
+ * CMSC 22200, Fall 2016
+ *
+ * ARM pipeline timing simulator
+ *
+ */
+
+#include "cache.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <assert.h>
+
+cache_t *cache_new(int sets, int ways, int block)
+{
+	cache_t *c = (cache_t*)malloc(sizeof(cache_t),1);
+	assert(c);
+	c->S = sets;
+	c->E = ways;
+	c->B = block;
+	c->sets = (cline**)malloc(sizeof(cline*),sets);
+	assert(c->sets);
+
+	int s,e;
+	for (s=0; s<sets; s++) {
+		c->sets[s] = (cline*)calloc(sizeof(cline),ways);
+		assert(c->sets[s]);
+		for (e=0; e<ways; e++) {
+			c->sets[s][e].data = (uint8_t*)calloc(sizeof(uint8_t),block);
+			assert(c->sets[s][e].data);
+		}
+	}
+	return c;	
+}
+
+void cache_destroy(cache_t *c)
+{
+	assert(c);
+	int s,e,b;
+	assert(c->sets);
+	for (s=0; s<c->S; s++) {
+		assert(c->sets[s]);
+		for (e=0; e<c->E; e++) {
+			assert(c->sets[s][e].data);
+			free(c->sets[s][e].data);
+		}
+		free(c->sets[s]);
+	}
+	free(c->sets);
+	free(c);
+	return;
+}
+
+
+int cache_update(cache_t *c, uint64_t addr)
+{
+    
+}
+
